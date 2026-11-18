@@ -13,7 +13,8 @@ Use this to decipher any shell command: https://explainshell.com/
 --------------------------------
 
 
-1. GET MANUAL PAGE FOR ANY BASH COMMAND
+1. GET MANUAL PAGE FOR ANY SHELL COMMAND
+(NOTE: manual pages not installed by default on Git Bash)
 
 man <command>
 
@@ -57,7 +58,7 @@ touch <file>
 
 rm <file>
     -r (recursively - USE WITH CAUTION)
-    -f (force - USE WITH CAUTION)
+    -f (force - USE WITH GREAT CAUTION)
 
 
 8. MOVE AND/OR RENAME FILES AND DIRECTORIES
@@ -77,6 +78,23 @@ cp <from> <to>
 
 nano <file> (simple text editor)
 vim <file> (advanced text editor)
+
+
+11. CONTROL SEQUENCES
+
+Tab: 	autocomplete
+↑: 		retrieve previous command
+Ctrl-c: stop the running command
+Ctrl-u: delete to start of line
+Ctrl-w: delete previous word
+Ctrl-l: clear screen
+Ctrl-a:	jump to start of line
+Ctrl-e: jump to end of line
+Ctrl-r: search command history
+		(start typing command, Ctrl-r again to cycle through matches, → when you find the command you want)
+Ctrl-d: end input / log out / close terminal (pane) / EOF
+Ctrl-z: suspend a program (fg to resume)
+
 
 -----------------------------------------
 MORE ADVANCED COMMANDS
@@ -112,6 +130,7 @@ grep <search string> <file or directory>
 13. YOU CAN PIPE THE OUTPUT OF ONE COMMAND INTO ANOTHER COMMAND WITH "|", E.G.:
 
 grep -r 'my search string' | less
+
 
 ----------------------------------------
 other

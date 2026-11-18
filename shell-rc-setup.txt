@@ -6,17 +6,18 @@ Git Bash starts as a login shell, which reads ~/.bash_profile and not
 ~/.bashrc, so the two need to be linked.
 
 1. Create the files:
-     touch ~/.bashrc ~/.bash_profile
+    touch ~/.bashrc ~/.bash_profile
 
 2. Make .bash_profile load .bashrc (add this line to ~/.bash_profile):
-     [ -f ~/.bashrc ] && . ~/.bashrc
+    [ -f ~/.bashrc ] && . ~/.bashrc
 
-3. Put your aliases and settings in ~/.bashrc, for example:
-     alias ll='ls -la'
-     alias gs='git status'
+3. Move an appropriate rc file into place and assign its correct name
+	mv rc_files/generic_rc_basic ~/.bashrc
+	# OR 
+	mv rc_files/.bashrc ~/.bashrc
 
 4. Reload without restarting:
-     source ~/.bash_profile
+    source ~/.bash_profile
 
 Note: ~ is $HOME, usually C:\Users\<you>.
 
@@ -29,9 +30,10 @@ zsh is the default shell on macOS (Catalina and later). It reads
 1. Create the file:
      touch ~/.zshrc
 
-2. Put your aliases and settings in ~/.zshrc, for example:
-     alias ll='ls -la'
-     alias gs='git status'
+2. Move an appropriate rc file into place and assign its correct name
+	mv rc_files/generic_rc_basic ~/.zshrc
+	# OR 
+	mv rc_files/.zshrc ~/.zshrc
 
 3. Reload without restarting:
      source ~/.zshrc
@@ -44,9 +46,10 @@ bash is the default shell on most distros.
 1. Create the file:
      touch ~/.bashrc
 
-2. Put your aliases and settings in ~/.bashrc, for example:
-     alias ll='ls -la'
-     alias gs='git status'
+2. Move an appropriate rc file into place and assign its correct name
+	mv rc_files/generic_rc_basic ~/.bashrc
+	# OR 
+	mv rc_files/.bashrc_linux ~/.bashrc
 
 3. Reload without restarting:
      source ~/.bashrc

@@ -1,0 +1,134 @@
+Bash (Unix shell) basic commands
+--------------------------------
+These commands are available natively on Mac OS and Linux, or through Git Bash on Windows.
+
+Read anything inside angle brackets (e.g. <foo>) as a variable, i.e. not literally.
+
+Anything preceded by "-" indicates an optional argument, called a "flag". Here's a command without a flag:
+	mkdir dir1/subdir1
+and with a flag:
+	mkdir -p dir1/subdir1
+
+Use this to decipher any shell command: https://explainshell.com/
+--------------------------------
+
+
+1. GET MANUAL PAGE FOR ANY BASH COMMAND
+
+man <command>
+
+
+2. PRINT WORKING (CURRENT) DIRECTORY
+
+pwd
+
+
+3. LIST FILES AND DIRECTORIES (FROM THE WORKING DIRECTORY UNLESS SPECIFIED)
+
+ls
+    -l (include metadata)
+    -R (recursive)
+	-a (include hidden files and directories, i.e. those prefixed with a ".")
+
+
+4. CHANGE DIRECTORY
+
+cd <directory>
+
+special values:
+    .. (parent directory)
+    ~ (home)
+    - (previous)
+    / (root)
+
+
+5. MAKE AND REMOVE DIRECTORY
+
+mkdir <directory>
+rmdir <directory> (only works if directory is empty; otherwise see rm)
+
+
+6. CREATE FILE
+
+touch <file>
+
+
+7. REMOVE FILES AND DIRECTORIES
+
+rm <file>
+    -r (recursively - USE WITH CAUTION)
+    -f (force - USE WITH CAUTION)
+
+
+8. MOVE AND/OR RENAME FILES AND DIRECTORIES
+
+mv <from> <to>
+    -i ("interactive": ask to confirm if something will be overwritten)
+
+
+9. COPY FILES AND DIRECTORIES
+
+cp <from> <to>
+    -i (interactive)
+    -r (recursive)
+
+
+10. OPEN FILE IN TEXT EDITOR
+
+nano <file> (simple text editor)
+vim <file> (advanced text editor)
+
+-----------------------------------------
+MORE ADVANCED COMMANDS
+
+some commands take more detailed arguments, using this form:
+	command -parameter argument
+for example, this command for finding files that are not directories, a maximum of five levels below the working directory, and ending in ".txt"
+	find . -maxdepth 5 -name '*.txt' -type f
+-----------------------------------------
+
+
+11. SEARCH FOR FILES/DIRECTORIES
+
+find <search string>
+    -type (f = files, d = directories, etc.)
+	-name (search by name)
+    -iname (case insensitive)
+    -maxdepth (only search down x levels)
+	-atime (search by last-access time)
+
+#here's an example of executing the head command (print first few lines) for all files returned by find:
+find . -name '*.txt' -type f -exec head {} \;
+
+
+12. SEARCH FOR TEXT STRINGS WITHIN FILES
+
+grep <search string> <file or directory>
+    -r (recursive)
+    -P (with regular expressions)
+	-l (return filenames only)
+
+
+13. YOU CAN PIPE THE OUTPUT OF ONE COMMAND INTO ANOTHER COMMAND WITH "|", E.G.:
+
+grep -r 'my search string' | less
+
+----------------------------------------
+other
+----------------------------------------
+
+
+14. PRINT CONTENTS OF FILE
+
+cat <file> 
+
+
+15. PROGRAM FOR PAGING THROUGH TEXT FILES. USE PGUP, PGDN, U, D, J, K TO SCROLL; /, N, N TO SEARCH; Q TO QUIT
+
+less <file>
+
+
+16. RUN AS ROOT (DANGEROUS, BUT NECESSARY FOR SOME INSTALLATIONS AND ADMIN ACTIONS)
+
+sudo <command>
+

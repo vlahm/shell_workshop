@@ -1,0 +1,53 @@
+MINIMAL SHELL RC SETUP
+
+=== GIT BASH (Windows): ~/.bashrc ===
+
+Git Bash starts as a login shell, which reads ~/.bash_profile and not
+~/.bashrc, so the two need to be linked.
+
+1. Create the files:
+     touch ~/.bashrc ~/.bash_profile
+
+2. Make .bash_profile load .bashrc (add this line to ~/.bash_profile):
+     [ -f ~/.bashrc ] && . ~/.bashrc
+
+3. Put your aliases and settings in ~/.bashrc, for example:
+     alias ll='ls -la'
+     alias gs='git status'
+
+4. Reload without restarting:
+     source ~/.bash_profile
+
+Note: ~ is $HOME, usually C:\Users\<you>.
+
+
+=== MACOS: ~/.zshrc ===
+
+zsh is the default shell on macOS (Catalina and later). It reads
+~/.zshrc for every interactive shell, so no linking is needed.
+
+1. Create the file:
+     touch ~/.zshrc
+
+2. Put your aliases and settings in ~/.zshrc, for example:
+     alias ll='ls -la'
+     alias gs='git status'
+
+3. Reload without restarting:
+     source ~/.zshrc
+
+
+=== LINUX: ~/.bashrc ===
+
+bash is the default shell on most distros.
+
+1. Create the file:
+     touch ~/.bashrc
+
+2. Put your aliases and settings in ~/.bashrc, for example:
+     alias ll='ls -la'
+     alias gs='git status'
+
+3. Reload without restarting:
+     source ~/.bashrc
+

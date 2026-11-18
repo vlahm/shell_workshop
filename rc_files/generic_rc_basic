@@ -1,0 +1,26 @@
+
+# navigation
+c() { cd "$@" && ls; }
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lR="ls -R"
+alias llR="ls -lR"
+lh() {
+  n=${1:-10}
+  ls -lt | head -n "$n"
+}
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias dl="cd ~/Downloads"
+alias db="cd ~/Dropbox"
+alias dt="cd ~/Desktop"
+
+# git (note that more complex git aliases need to be defined within git)
+alias gits="git status"
+alias gita="git add ."
+gitc() { git commit -m "$1"; }
+alias gitshows="git rev-list --objects --all |   git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' |   sed -n 's/^blob //p' |   sort --numeric-sort --key=2 |   cut -c 1-12,41- |   $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest"
+githist() { git grep "$1" $(git rev-list --all) -- "*$2"; }

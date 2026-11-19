@@ -5,9 +5,9 @@ These commands are available natively on Mac OS and Linux, or through Git Bash o
 Read anything inside angle brackets (e.g. <foo>) as a variable, i.e. not literally.
 
 Anything preceded by "-" indicates an optional argument, called a "flag". Here's a command without a flag:
-	mkdir dir1/subdir1
+    mkdir dir1/subdir1
 and with a flag:
-	mkdir -p dir1/subdir1
+    mkdir -p dir1/subdir1
 
 Use this to decipher any shell command: https://explainshell.com/
 --------------------------------
@@ -29,7 +29,7 @@ pwd
 ls
     -l (include metadata)
     -R (recursive)
-	-a (include hidden files and directories, i.e. those prefixed with a ".")
+    -a (include hidden files and directories, i.e. those prefixed with a ".")
 
 
 4. CHANGE DIRECTORY
@@ -57,8 +57,9 @@ touch <file>
 7. REMOVE FILES AND DIRECTORIES
 
 rm <file>
-    -r (recursively - USE WITH CAUTION)
-    -f (force - USE WITH GREAT CAUTION)
+    -r  (recursively - USE WITH CAUTION)
+    -f  (force - USE WITH GREAT CAUTION)
+    -rf (both - EXTREME CAUTION)
 
 
 8. MOVE AND/OR RENAME FILES AND DIRECTORIES
@@ -82,16 +83,16 @@ vim <file> (advanced text editor)
 
 11. CONTROL SEQUENCES
 
-Tab: 	autocomplete
-↑: 		retrieve previous command
+Tab:     autocomplete
+↑:         retrieve previous command
 Ctrl-c: stop the running command
 Ctrl-u: delete to start of line
 Ctrl-w: delete previous word
 Ctrl-l: clear screen
-Ctrl-a:	jump to start of line
+Ctrl-a:    jump to start of line
 Ctrl-e: jump to end of line
 Ctrl-r: search command history
-		(start typing command, Ctrl-r again to cycle through matches, → when you find the command you want)
+        (start typing command, Ctrl-r again to cycle through matches, → when you find the command you want)
 Ctrl-d: end input / log out / close terminal (pane) / EOF
 Ctrl-z: suspend a program (fg to resume)
 
@@ -100,9 +101,9 @@ Ctrl-z: suspend a program (fg to resume)
 MORE ADVANCED COMMANDS
 
 some commands take more detailed arguments, using this form:
-	command -parameter argument
+    command -parameter argument
 for example, this command for finding files that are not directories, a maximum of five levels below the working directory, and ending in ".txt"
-	find . -maxdepth 5 -name '*.txt' -type f
+    find . -maxdepth 5 -name '*.txt' -type f
 -----------------------------------------
 
 
@@ -110,10 +111,10 @@ for example, this command for finding files that are not directories, a maximum 
 
 find <search string>
     -type (f = files, d = directories, etc.)
-	-name (search by name)
+    -name (search by name)
     -iname (case insensitive)
     -maxdepth (only search down x levels)
-	-atime (search by last-access time)
+    -atime (search by last-access time)
 
 #here's an example of executing the head command (print first few lines) for all files returned by find:
 find . -name '*.txt' -type f -exec head {} \;
@@ -124,7 +125,7 @@ find . -name '*.txt' -type f -exec head {} \;
 grep <search string> <file or directory>
     -r (recursive)
     -P (with regular expressions)
-	-l (return filenames only)
+    -l (return filenames only)
 
 
 13. YOU CAN PIPE THE OUTPUT OF ONE COMMAND INTO ANOTHER COMMAND WITH "|", E.G.:

@@ -67,6 +67,12 @@ rm <file>
 mv <from> <to>
     -i ("interactive": ask to confirm if something will be overwritten)
 
+mv foo* dir1   # move all files beginning with "foo" into dir1/
+mv foo? dir1   # move all files with 4-character names beginning
+               # with "foo" into dir1/
+               # These wildcards are called "glob characters" and there
+               # are many more. They're basically simplified Regex
+
 
 9. COPY FILES AND DIRECTORIES
 

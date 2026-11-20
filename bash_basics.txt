@@ -128,17 +128,12 @@ grep <search string> <file or directory>
     -l (return filenames only)
 
 
-13. YOU CAN PIPE THE OUTPUT OF ONE COMMAND INTO ANOTHER COMMAND WITH "|", E.G.:
-
-grep -r 'my search string' | less
-
-
 ----------------------------------------
 other
 ----------------------------------------
 
 
-14. PRINT CONTENTS OF FILE
+13. PRINT CONTENTS OF FILE
 
 cat <file>     #print full contents
 head <file>    #print first n lines (10 default)
@@ -146,12 +141,17 @@ tail <file     #print last n lines (10 default)
 fail -f <file> #watch as the file changes
 
 
-15. PROGRAM FOR PAGING THROUGH TEXT FILES. USE PGUP, PGDN, U, D, J, K TO SCROLL; /, N, N TO SEARCH; Q TO QUIT
+14. MINIMAL PROGRAM FOR PAGING THROUGH TEXT FILES
+use pgup, pgdn, u, d, j, k to scroll; /, n, n to search; q to quit
 
 less <file>
 
 
-16. RUN AS ROOT (DANGEROUS, BUT NECESSARY FOR SOME INSTALLATIONS AND ADMIN ACTIONS)
+15. RUN AS ROOT (DANGEROUS, BUT NECESSARY FOR SOME INSTALLATIONS AND ADMIN ACTIONS)
 
 sudo <command>
+
+16. PIPE THE OUTPUT OF ONE COMMAND INTO ANOTHER COMMAND WITH | operator
+
+grep -r 'my search string' | less
 

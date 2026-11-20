@@ -1,15 +1,21 @@
 Bash (Unix shell) basic commands
 --------------------------------
+
 These commands are available natively on Mac OS and Linux, or through Git Bash on Windows.
 
 Read anything inside angle brackets (e.g. <foo>) as a variable, i.e. not literally.
 
-Anything preceded by "-" indicates an optional argument, called a "flag". Here's a command without a flag:
+Anything preceded by "-" indicates an optional argument, called a "flag".
+Here's a command without a flag:
+
     mkdir dir1/subdir1
+
 and with a flag:
+
     mkdir -p dir1/subdir1
 
 Use this to decipher any shell command: https://explainshell.com/
+
 --------------------------------
 
 
@@ -49,12 +55,18 @@ mkdir <directory>
 rmdir <directory> (only works if directory is empty; otherwise see rm)
 
 
-6. CREATE FILE
+6. CREATE EMPTY FILE
 
 touch <file>
 
 
-7. REMOVE FILES AND DIRECTORIES
+7. OPEN FILE IN TEXT EDITOR (file will be created if it doesn't exist)
+
+nano <file> (simple text editor)
+vim <file> (advanced text editor)
+
+
+8. REMOVE FILES AND DIRECTORIES
 
 rm <file>
     -r  (recursively - USE WITH CAUTION)
@@ -62,7 +74,7 @@ rm <file>
     -rf (both - EXTREME CAUTION)
 
 
-8. MOVE AND/OR RENAME FILES AND DIRECTORIES
+9. MOVE AND/OR RENAME FILES AND DIRECTORIES
 
 mv <from> <to>
     -i ("interactive": ask to confirm if something will be overwritten)
@@ -74,59 +86,69 @@ mv foo? dir1   # move all files with 4-character names beginning
                # are many more. They're basically simplified Regex
 
 
-9. COPY FILES AND DIRECTORIES
+10. COPY FILES AND DIRECTORIES
 
 cp <from> <to>
     -i (interactive)
     -r (recursive)
 
 
-10. OPEN FILE IN TEXT EDITOR
+11. PRINT CONTENTS OF FILES
 
-nano <file> (simple text editor)
-vim <file> (advanced text editor)
+cat <file>     #print full contents
+head <file>    #print first n lines (10 default)
+tail <file     #print last n lines (10 default)
+fail -f <file> #watch as the file changes
 
 
-11. CONTROL SEQUENCES
+12. CONTROL SEQUENCES
 
-Tab:     autocomplete
-↑:         retrieve previous command
+Tab:    autocomplete
+↑:      retrieve previous command
 Ctrl-c: stop the running command
 Ctrl-u: delete to start of line
 Ctrl-w: delete previous word
 Ctrl-l: clear screen
-Ctrl-a:    jump to start of line
+Ctrl-a: jump to start of line
 Ctrl-e: jump to end of line
 Ctrl-r: search command history
-        (start typing command, Ctrl-r again to cycle through matches, → when you find the command you want)
+        (start typing command, Ctrl-r again to cycle through matches,
+         → when you find the command you want)
 Ctrl-d: end input / log out / close terminal (pane) / EOF
 Ctrl-z: suspend a program (fg to resume)
 
 
 -----------------------------------------
+
 MORE ADVANCED COMMANDS
 
 some commands take more detailed arguments, using this form:
+
     command -parameter argument
-for example, this command for finding files that are not directories, a maximum of five levels below the working directory, and ending in ".txt"
+
+for example, this command for finding files that are not directories,
+a maximum of 5 levels below the working directory, and ending in ".txt"
+
     find . -maxdepth 5 -name '*.txt' -type f
+
 -----------------------------------------
 
 
-11. SEARCH FOR FILES/DIRECTORIES
+12. SEARCH FOR FILES/DIRECTORIES
 
 find <search string>
-    -type (f = files, d = directories, etc.)
-    -name (search by name)
-    -iname (case insensitive)
-    -maxdepth (only search down x levels)
+    -maxdepth x (only search down x levels)
+    -type (f for files, d for directories, etc.)
+    -name (search by name; accepts glob characters)
+    -iname (case insensitive name search)
     -atime (search by last-access time)
 
-#here's an example of executing the head command (print first few lines) for all files returned by find:
-find . -name '*.txt' -type f -exec head {} \;
+# run the head command for all found files:
+
+	find . -name '*.txt' -type f -exec head {} \;
 
 
-12. SEARCH FOR TEXT STRINGS WITHIN FILES
+13. SEARCH FOR TEXT STRINGS WITHIN FILES
 
 grep <search string> <file or directory>
     -r (recursive)
@@ -139,14 +161,6 @@ other
 ----------------------------------------
 
 
-13. PRINT CONTENTS OF FILE
-
-cat <file>     #print full contents
-head <file>    #print first n lines (10 default)
-tail <file     #print last n lines (10 default)
-fail -f <file> #watch as the file changes
-
-
 14. MINIMAL PROGRAM FOR PAGING THROUGH TEXT FILES
 use pgup, pgdn, u, d, j, k to scroll; /, n, n to search; q to quit
 
@@ -156,6 +170,13 @@ less <file>
 15. RUN AS ROOT (DANGEROUS, BUT NECESSARY FOR SOME INSTALLATIONS AND ADMIN ACTIONS)
 
 sudo <command>
+
+
+16. INSTALL AND MANAGE PACKAGES FROM THE COMMAND LINE
+
+brew   # macOS; must install homebrew first
+pacman # Windows; must install MSYS2, which is an alternative to Git Bashapt    # Ubuntu/Debian-based Linux distros
+
 
 16. PIPE THE OUTPUT OF ONE COMMAND INTO ANOTHER COMMAND WITH | operator
 

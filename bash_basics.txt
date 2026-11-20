@@ -140,7 +140,10 @@ other
 
 14. PRINT CONTENTS OF FILE
 
-cat <file> 
+cat <file>     #print full contents
+head <file>    #print first n lines (10 default)
+tail <file     #print last n lines (10 default)
+fail -f <file> #watch as the file changes
 
 
 15. PROGRAM FOR PAGING THROUGH TEXT FILES. USE PGUP, PGDN, U, D, J, K TO SCROLL; /, N, N TO SEARCH; Q TO QUIT
